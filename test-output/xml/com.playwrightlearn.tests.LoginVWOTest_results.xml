@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Playwright_Learning_Java"
+           tests="1"
+           failures="0"
+           errors="0"
+           skipped="0"
+           time="4.544">
+    <properties></properties>
+
+
+
+            <testcase
+                name="loginTest"
+                time="4.544"
+                classname="com.playwrightlearn.tests.LoginVWOTest">
+            </testcase>
+</testsuite>

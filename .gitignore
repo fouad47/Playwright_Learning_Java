@@ -7,8 +7,15 @@
 # BlueJ files
 *.ctxt
 
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
+# Ignore all text files
+*.txt
+!default.txt
+
+# Ignore .idea folder
+.idea/
+
+# Ignore target folder
+target/
 
 # Package Files #
 *.jar
@@ -19,9 +26,19 @@
 *.tar.gz
 *.rar
 
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 replay_pid*
-example.png
-.idea/vcs.xml
-.idea/vcs.xml
+*.png
+
+node_modules/
+logs/
+*.DS_Store
+*.log
+!example.log
+logs/
+!logs/example.log
+
