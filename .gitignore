@@ -36,6 +36,7 @@ replay_pid*
 
 node_modules/
 logs/
+test-output/
 *.DS_Store
 *.log
 !example.log
