@@ -1,4 +1,4 @@
-package com.playwrightlearn.pages;
+package com.pramodplaywrightlearn.pages;
 
 import com.microsoft.playwright.Page;
 

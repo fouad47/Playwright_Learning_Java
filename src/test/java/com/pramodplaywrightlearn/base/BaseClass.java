@@ -1,4 +1,4 @@
-package com.playwrightlearn.base;
+package com.pramodplaywrightlearn.base;
 
 import com.microsoft.playwright.*;
 import com.microsoft.playwright.options.WaitUntilState;

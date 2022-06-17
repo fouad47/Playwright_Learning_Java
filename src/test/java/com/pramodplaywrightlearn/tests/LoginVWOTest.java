@@ -1,8 +1,8 @@
-package com.playwrightlearn.tests;
+package com.pramodplaywrightlearn.tests;
 
 
-import com.playwrightlearn.base.BaseClass;
-import com.playwrightlearn.pages.LoginVWOPage;
+import com.pramodplaywrightlearn.base.BaseClass;
+import com.pramodplaywrightlearn.pages.LoginVWOPage;
 import org.testng.Assert;
 import org.testng.annotations.*;
 
