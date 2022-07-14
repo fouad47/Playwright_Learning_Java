@@ -40,9 +40,6 @@ public class FirstTestCase {
         System.out.println("Page URL is: "+ url);
 
         assertEquals(title, page.title());
-
-        browser.close();
-        playwright.close();
     }
 
     @AfterTest

@@ -34,6 +34,7 @@ hs_err_pid*
 replay_pid*
 *.png
 
+# IntelliJ Folders and Files
 node_modules/
 logs/
 test-output/
