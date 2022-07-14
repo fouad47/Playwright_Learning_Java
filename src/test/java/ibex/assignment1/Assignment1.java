@@ -8,10 +8,9 @@ import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
-
+import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
 import java.nio.file.Paths;
 
-import static org.testng.AssertJUnit.assertEquals;
 
 public class Assignment1 {
 
@@ -25,18 +24,28 @@ public class Assignment1 {
         playwright = Playwright.create();
         browser = playwright.chromium().launch(new BrowserType.LaunchOptions().setHeadless(false).setSlowMo(50));
         page = browser.newPage();
+        page.setDefaultTimeout(60000);
     }
 
     @Test (priority = 1)
-    public void verifyFirstIbexProgram_LoginToDashboard() {
+    public void verifyLoginToDashboard() {
         // Go to https://qacx.reflecx.io/accounts/Account/Login
         page.navigate("https://qacx.reflecx.io");
+        // Wait for the page to load
+        page.waitForLoadState(LoadState.NETWORKIDLE);
         // Assert page title
         String actualTitle = page.title();
         System.out.println("Login Page title is: " + actualTitle);
         Assert.assertEquals(actualTitle, "Reflecx");
+        // Assert page text
+        assertThat(page.locator("text=Welcome Sign in to continue. >> img")).isVisible();
+        // Assert page text
+        assertThat(page.locator("text=Welcome")).isVisible();
+        // Assert page text
+        assertThat(page.locator("text=Sign in to continue.")).isVisible();
         // Take Screenshot of the current page
         page.screenshot(new Page.ScreenshotOptions().setPath(Paths.get("example.png")));
+
 
         page.click("input[name=\"Username\"]");
         // Fill input[name="Username"]
@@ -50,6 +59,7 @@ public class Assignment1 {
         page.waitForNavigation(() -> {
             page.click("button:has-text(\"Sign in\")");
         });
+        // Wait for the page to load
         page.waitForLoadState(LoadState.NETWORKIDLE);
 
         // Assert page title
@@ -60,16 +70,24 @@ public class Assignment1 {
         String pageUrl1 = page.url();
         System.out.println("Dashboard Page URL is: " + pageUrl1);
         Assert.assertEquals(pageUrl1, "https://qacx.reflecx.io/portal/insights/dashboard");
+        // Assert page text
+        assertThat(page.locator("h1:has-text(\"Dashboard\")")).isVisible();
+        // Assert page text
+        assertThat(page.locator("text= Total Alerts")).isVisible();
         // Take screenshot of the current page
         page.screenshot(new Page.ScreenshotOptions().setPath(Paths.get("example2.png")));
         // Click Total Alerts widget
         page.waitForNavigation(() -> {
             page.click("text=Edit Total Alerts Created with Highcharts 9.3.3KPI 0% Alert Count 0 0 0.0 % New  >> i");
         });
+        // Wait for the page to load
         page.waitForLoadState(LoadState.NETWORKIDLE);
+
     }
     @Test (priority = 2)
-    public void verifyFirstIbexProgram_DashboardNavigation() {
+    public void verifyDashboardNavigationAndWidgetAssertion() {
+        //assert locator
+        assertThat(page.locator("h1:has-text(\"Alert List\")")).isVisible();
         // Click h1:has-text("Alert List")
         page.click("h1:has-text(\"Alert List\")");
         // Assert page title
@@ -85,7 +103,7 @@ public class Assignment1 {
 
     }
     @Test (priority = 3)
-    public void verifyFirstIbexProgram_Logout()
+    public void verifyLogout()
     {
         // Click .user-dropdown-link
         page.click(".user-dropdown-link");
@@ -94,6 +112,7 @@ public class Assignment1 {
         page.waitForNavigation(() -> {
             page.click("text=Logout");
         });
+        // Wait for the page to load
         page.waitForLoadState(LoadState.NETWORKIDLE);
 
         // Assert the current page
