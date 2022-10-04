@@ -1,6 +1,10 @@
 package ibex.assignment1;
+/*
 
-// mvn exec:java -e -Dexec.mainClass=com.microsoft.playwright.CLI -Dexec.args="codegen https://qacx.reflecx.io
+mvn exec:java -e -Dexec.mainClass=com.microsoft.playwright.CLI -Dexec.args="codegen http://www.londonfreelance.org/courses/frames/index.html
+mvn exec:java -e -Dexec.mainClass=com.microsoft.playwright.CLI -Dexec.args="codegen https://qacx.reflecx.io
+*/
+
 /*
 
 Muhammad Fouad Ilyas
